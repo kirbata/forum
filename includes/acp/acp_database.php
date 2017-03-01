@@ -2,7 +2,7 @@
 /**
 *
 * @package acp
-* @version $Id$
+* @version $Id: acp_database.php 10174 2009-09-21 17:59:39Z acydburn $
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -1718,8 +1718,8 @@ class mssql_extractor extends base_extractor
 			$sql_data .= "\nSET IDENTITY_INSERT $table_name OFF\nGO\n";
 		}
 		$this->flush($sql_data);
-	}	
-	
+	}
+
 	function write_data_odbc($table_name)
 	{
 		global $db;

@@ -2,7 +2,7 @@
 /**
 *
 * @package dbal
-* @version $Id$
+* @version $Id: sqlite.php 8814 2008-09-04 12:01:47Z acydburn $
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -66,7 +66,7 @@ class dbal_sqlite extends dbal
 
 			if (!empty($cache) && $use_cache)
 			{
-				$cache->put('sqlite_version', $this->sql_server_version);
+			$cache->put('sqlite_version', $this->sql_server_version);
 			}
 		}
 

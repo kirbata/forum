@@ -2,7 +2,7 @@
 /**
 *
 * @package mcp
-* @version $Id$
+* @version $Id: mcp_queue.php 10252 2009-11-03 14:51:07Z acydburn $
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -693,16 +693,16 @@ function approve_post($post_id_list, $id, $mode)
 
 		if ($config['email_enable'] || $config['jab_enable'])
 		{
-			foreach ($post_info as $post_data)
+		foreach ($post_info as $post_data)
+		{
+			if ($post_data['poster_id'] == ANONYMOUS)
 			{
-				if ($post_data['poster_id'] == ANONYMOUS)
-				{
-					continue;
-				}
-				else
-				{
-					$show_notify = true;
-					break;
+				continue;
+			}
+			else
+			{
+				$show_notify = true;
+				break;
 				}
 			}
 		}

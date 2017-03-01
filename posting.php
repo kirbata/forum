@@ -17,6 +17,7 @@ $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
 include($phpbb_root_path . 'includes/functions_posting.' . $phpEx);
 include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
+include($phpbb_root_path . 'includes/functions_thanks.' . $phpEx);
 include($phpbb_root_path . 'includes/message_parser.' . $phpEx);
 
 
@@ -1584,6 +1585,7 @@ function handle_post_delete($forum_id, $topic_id, $post_id, &$post_data)
 			);
 
 			$next_post_id = delete_post($forum_id, $topic_id, $post_id, $data);
+            delete_post_thanks($post_id);
 			$post_username = ($post_data['poster_id'] == ANONYMOUS && !empty($post_data['post_username'])) ? $post_data['post_username'] : $post_data['username'];
 
 			if ($next_post_id === false)

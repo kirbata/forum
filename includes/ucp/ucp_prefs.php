@@ -2,7 +2,7 @@
 /**
 *
 * @package ucp
-* @version $Id$
+* @version $Id: ucp_prefs.php 9734 2009-07-08 13:03:43Z nickvergessen $
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -51,6 +51,7 @@ class ucp_prefs
 					'notifypm'		=> request_var('notifypm', (bool) $user->data['user_notify_pm']),
 					'popuppm'		=> request_var('popuppm', (bool) $user->optionget('popuppm')),
 					'allowpm'		=> request_var('allowpm', (bool) $user->data['user_allow_pm']),
+                    'allowthankspm' => request_var('allowthankspm', (bool) $user->data['user_allow_thanks_pm']),
 				);
 
 				if ($data['notifymethod'] == NOTIFY_IM && (!$config['jab_enable'] || !$user->data['user_jabber'] || !@extension_loaded('xml')))
@@ -80,6 +81,7 @@ class ucp_prefs
 
 						$sql_ary = array(
 							'user_allow_pm'			=> $data['allowpm'],
+                            'user_allow_thanks_pm'  => $data['allowthankspm'],
 							'user_allow_viewemail'	=> $data['viewemail'],
 							'user_allow_massemail'	=> $data['massemail'],
 							'user_allow_viewonline'	=> ($auth->acl_get('u_hideonline')) ? !$data['hideonline'] : $user->data['user_allow_viewonline'],
@@ -136,6 +138,7 @@ class ucp_prefs
 					'S_VIEW_EMAIL'		=> $data['viewemail'],
 					'S_MASS_EMAIL'		=> $data['massemail'],
 					'S_ALLOW_PM'		=> $data['allowpm'],
+                    'S_ALLOW_THANKS_PM' => $data['allowthankspm'],
 					'S_HIDE_ONLINE'		=> $data['hideonline'],
 					'S_NOTIFY_PM'		=> $data['notifypm'],
 					'S_POPUP_PM'		=> $data['popuppm'],
@@ -169,6 +172,7 @@ class ucp_prefs
 					'post_sk'		=> request_var('post_sk', (!empty($user->data['user_post_sortby_type'])) ? $user->data['user_post_sortby_type'] : 't'),
 					'post_sd'		=> request_var('post_sd', (!empty($user->data['user_post_sortby_dir'])) ? $user->data['user_post_sortby_dir'] : 'a'),
 					'post_st'		=> request_var('post_st', (!empty($user->data['user_post_show_days'])) ? $user->data['user_post_show_days'] : 0),
+					'posts_pp'		=> request_var('posts_pp', (!empty($user->data['user_posts_per_page'])) ? $user->data['user_posts_per_page'] : 0),
 
 					'images'		=> request_var('images', (bool) $user->optionget('viewimg')),
 					'flash'			=> request_var('flash', (bool) $user->optionget('viewflash')),
@@ -214,6 +218,7 @@ class ucp_prefs
 
 							'user_topic_show_days'	=> $data['topic_st'],
 							'user_post_show_days'	=> $data['post_st'],
+							'user_posts_per_page' => $data['posts_pp'],
 						);
 
 						$sql = 'UPDATE ' . USERS_TABLE . '
@@ -289,7 +294,8 @@ class ucp_prefs
 					'S_TOPIC_SORT_DIR'		=> $s_sort_topic_dir,
 					'S_POST_SORT_DAYS'		=> $s_limit_post_days,
 					'S_POST_SORT_KEY'		=> $s_sort_post_key,
-					'S_POST_SORT_DIR'		=> $s_sort_post_dir)
+					'S_POST_SORT_DIR'		=> $s_sort_post_dir,
+					'S_POSTS_PER_PAGE'		=> $user->data['user_posts_per_page'])
 				);
 
 			break;

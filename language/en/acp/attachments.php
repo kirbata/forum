@@ -4,7 +4,7 @@
 * acp_attachments [English]
 *
 * @package language
-* @version $Id$
+* @version $Id: attachments.php 8946 2008-09-26 18:32:05Z toonarmy $
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -85,7 +85,7 @@ $lang = array_merge($lang, array(
 	'DISPLAY_INLINED_EXPLAIN'		=> 'If set to No image attachments will show as a link.',
 	'DISPLAY_ORDER'					=> 'Attachment display order',
 	'DISPLAY_ORDER_EXPLAIN'			=> 'Display attachments ordered by time.',
-
+	
 	'EDIT_EXTENSION_GROUP'			=> 'Edit extension group',
 	'EXCLUDE_ENTERED_IP'			=> 'Enable this to exclude the entered IP/hostname.',
 	'EXCLUDE_FROM_ALLOWED_IP'		=> 'Exclude IP from allowed IPs/hostnames',

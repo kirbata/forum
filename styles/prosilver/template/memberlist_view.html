@@ -111,6 +111,19 @@
 
 </form>
 
+<!-- IF SN_MODULE_APPROVAL_ENABLED && SN_FMS_BLOCK_FRIEND_IS_NOT_EMPTY -->
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<h3>{L_SN_FAS_FRIEND_LIST}</h3>
+    {SN_FMS_BLOCK_FRIEND_CONTENT}<div class="clear"></div>			
+    {SN_FMS_BLOCK_FRIEND_PAGINATION_STRING}<div class="clear"></div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+<!-- IF SN_MODULE_USERSTATUS_ENABLED && SN_MODULE_USERSTATUS_VIEWPROFILE_ENABLE -->      
+  <!-- INCLUDE socialnet/userstatus_memberlist.html -->
+<!-- ENDIF -->
+
 <!-- INCLUDE jumpbox.html -->
 
 <!-- INCLUDE overall_footer.html -->

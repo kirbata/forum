@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB3
-* @version $Id$
+* @version $Id: viewforum.php 10067 2009-08-30 17:13:28Z acydburn $
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -142,7 +142,7 @@ else
 }
 
 // Dump out the page header and load viewforum template
-page_header($user->lang['VIEW_FORUM'] . ' - ' . $forum_data['forum_name'], true, $forum_id);
+page_header($forum_data['forum_name'], true, $forum_id);
 
 $template->set_filenames(array(
 	'body' => 'viewforum_body.html')
